@@ -67,7 +67,7 @@ Final SD card structure:
 ├── start.elf
 ├── fixup.dat
 ├── kernel.img
-├── hello.py          (your Python scripts)
+├── hello.py  (your Python scripts)
 └── test.py
 4. Connect Serial Console
 Wiring (USB-to-TTL cable to Raspberry Pi GPIO):
