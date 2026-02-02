@@ -71,3 +71,38 @@ GND (Black) -> Pin 6 (Ground)
 TX (White) -> Pin 10 (GPIO 15, RXD)
 RX (Green) -> Pin 8 (GPIO 14, TXD)
 DO NOT connect the power wire (Red)!
+
+Open the serial terminal:
+
+Linux:
+screen /dev/ttyUSB0 115200
+
+macOS:
+screen /dev/cu.usbserial 115200
+
+Windows: (use PuTTY)
+Set: COM port, 115200 baud, 8n1
+
+5. Boot:
+Insert the micro SD card into the Raspberry Pi and power on. You should see:
+
+========================================
+  SimpleOS with MicroPython v2.0
+========================================
+Enhanced OS with Python support
+
+Initializing SD card...
+SD card initialized successfully
+Initializing FAT32 file system...
+FAT32: Initialized successfully
+
+Type 'help' for available commands.
+
+SimpleOS>
+
+Available Commands:
+Command   | Description                    | Example     |
+_________________________________________________________
+help      | Display all available commands | help        |
+ls        | List files on SD card          | ls          |
+cat <file>| Display contents of a file     | cat hello.py|
