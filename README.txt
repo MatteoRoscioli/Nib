@@ -86,10 +86,12 @@ Set: COM port, 115200 baud, 8n1
 5. Boot:
 Insert the micro SD card into the Raspberry Pi and power on. You should see:
 
+_________________________________________________________________________
+
 ========================================
-  SimpleOS with MicroPython v2.0
+             Nib OS v1.0
 ========================================
-Enhanced OS with Python support
+Lightweight OS with Python support
 
 Initializing SD card...
 SD card initialized successfully
@@ -98,11 +100,25 @@ FAT32: Initialized successfully
 
 Type 'help' for available commands.
 
-SimpleOS>
+Nib>
+_________________________________________________________________________
+
 
 Available Commands:
-Command   | Description                    | Example     |
-_________________________________________________________
-help      | Display all available commands | help        |
-ls        | List files on SD card          | ls          |
-cat <file>| Display contents of a file     | cat hello.py|
+Command    | Description                               | Example         |
+__________________________________________________________________________
+help       | Display all available commands            | help            |
+ls         | List files on SD card                     | ls              |
+cat <file> | Display contents of a file                | cat hello.py    |
+run <file> | Run a Python script (requires MicroPython)| run hello.py    |
+echo <text>| Echo text back to console                 | echo Hello World|
+clear      | Clear the screen                          | clear           |
+info       | Show system information                   | info            |
+mem        | Display memory usage statistics           | mem             |
+reboot     | Reboot the system                         | reboot          |
+__________________________________________________________________________
+
+Using Nib OS:
+Listin Files:
+
+
