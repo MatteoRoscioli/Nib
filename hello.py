@@ -1,2 +1,3 @@
 # hello.py - Simple hello world
-print("Hello from MicroPython on Nib OS!")
+print("Hello from Nib OS!")
+print("Running on bare metal!")
