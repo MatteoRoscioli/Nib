@@ -1,5 +1,5 @@
 /*
- * linker.ld - Linker script for SimpleOS
+ * linker.ld - Linker script for Nib OS
  */
 
 ENTRY(_start)
