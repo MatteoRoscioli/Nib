@@ -150,8 +150,7 @@ Nib> ls
 
 Files in root directory:
 ========================
-HELLO.PY  (156 bytes)
-TEST.PY   (89 bytes)
+HELLO.PY  (249 bytes)
 ========================
 ```
 
@@ -440,8 +439,4 @@ Contributions are welcome! Please:
 
 ## Credits
 
-Created by Matteo Roscioli.
-
-## Support
-
-For issues, questions, or contributions, visit https://github.com/MatteoRoscioli/Nib
+Created by Matteo Roscioli
