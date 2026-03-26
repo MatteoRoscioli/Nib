@@ -1,23 +1,23 @@
 /*
  * kernel.c - Nib OS kernel with MicroPython support
  */
-
+ 
 #include "uart.h"
 #include "memory.h"
 #include "sd.h"
 #include "fat32.h"
-
+ 
 // MicroPython placeholder (we'll add integration instructions)
 extern int micropython_init(void);
 extern int micropython_run_file(const char* code, unsigned int size);
-
+ 
 // String functions
 int strlen(const char* str) {
     int len = 0;
     while (str[len]) len++;
     return len;
 }
-
+ 
 int strcmp(const char* s1, const char* s2) {
     while (*s1 && (*s1 == *s2)) {
         s1++;
@@ -25,14 +25,14 @@ int strcmp(const char* s1, const char* s2) {
     }
     return *(unsigned char*)s1 - *(unsigned char*)s2;
 }
-
+ 
 void strcpy(char* dst, const char* src) {
     while (*src) {
         *dst++ = *src++;
     }
     *dst = '\0';
 }
-
+ 
 int strncmp(const char* s1, const char* s2, int n) {
     while (n && *s1 && (*s1 == *s2)) {
         s1++;
@@ -42,7 +42,7 @@ int strncmp(const char* s1, const char* s2, int n) {
     if (n == 0) return 0;
     return *(unsigned char*)s1 - *(unsigned char*)s2;
 }
-
+ 
 // Command: help
 void cmd_help() {
     uart_puts("Available commands:\n");
@@ -57,18 +57,18 @@ void cmd_help() {
     uart_puts("  mem       - Show memory usage\n");
     uart_puts("  reboot    - Reboot system\n");
 }
-
+ 
 // Command: echo
 void cmd_echo(char* args) {
     uart_puts(args);
     uart_puts("\n");
 }
-
+ 
 // Command: clear
 void cmd_clear() {
     uart_puts("\033[2J\033[H");
 }
-
+ 
 // Command: info
 void cmd_info() {
     uart_puts("Nib OS v1.0\n");
@@ -79,12 +79,12 @@ void cmd_info() {
     uart_puts("  - MicroPython interpreter\n");
     uart_puts("  - File system access\n");
 }
-
+ 
 // Command: ls (list files)
 void cmd_ls() {
     fat32_list_files();
 }
-
+ 
 // Command: cat (display file)
 void cmd_cat(char* filename) {
     if (*filename == '\0') {
@@ -110,7 +110,7 @@ void cmd_cat(char* filename) {
     
     free(buffer);
 }
-
+ 
 // Command: run (execute Python file)
 void cmd_run(char* filename) {
     if (*filename == '\0') {
@@ -138,7 +138,7 @@ void cmd_run(char* filename) {
         // In full version, this would call: micropython_run_file((char*)buffer, size);
         uart_puts("MicroPython execution not yet integrated.\n");
         uart_puts("To integrate MicroPython:\n");
-        uart_puts("1. Download MicroPython for bare-metal ARM\n");
+        uart_puts("1. Download MicroPython for ARM\n");
         uart_puts("2. Link it with this kernel\n");
         uart_puts("3. Implement micropython_run_file() function\n");
         
@@ -152,7 +152,7 @@ void cmd_run(char* filename) {
     
     free(buffer);
 }
-
+ 
 // Command: mem (memory info)
 void cmd_mem() {
     uart_puts("Memory usage:\n");
@@ -163,7 +163,7 @@ void cmd_mem() {
     uart_dec(mem_available());
     uart_puts(" bytes\n");
 }
-
+ 
 // Command: reboot
 void cmd_reboot() {
     uart_puts("Rebooting...\n");
@@ -175,7 +175,7 @@ void cmd_reboot() {
     
     while(1);
 }
-
+ 
 // Parse and execute command
 void parse_command(char* cmd) {
     // Skip leading spaces
@@ -219,7 +219,7 @@ void parse_command(char* cmd) {
         uart_puts("\nType 'help' for available commands.\n");
     }
 }
-
+ 
 // Simple shell
 void shell() {
     char buffer[256];
@@ -251,7 +251,7 @@ void shell() {
         }
     }
 }
-
+ 
 // Kernel main
 void kernel_main(void) {
     // Initialize UART
@@ -293,3 +293,4 @@ void kernel_main(void) {
         uart_putc('.');
     }
 }
+ 
